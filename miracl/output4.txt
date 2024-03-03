@@ -1,0 +1,11 @@
+
+Setup : 0.636494s
+
+Key extration for Bob : 0.398103s
+
+Encryption by Alice : 0.01894s
+
+Decryption Success
+
+Decryption by Bob : 0.035262s
+

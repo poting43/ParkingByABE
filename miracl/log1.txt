@@ -1,0 +1,19 @@
+
+Universe of attributes : 1 - 20
+
+Alice's attributes : 7 6 3 4 12 1 9 
+
+Bob's attributes : 6 3 4 12 5 10 7 
+
+Threshold : 5
+
+Setup : 0.468418s
+
+Key extration for Bob : 0.231487s
+
+Encryption by Alice : 0.015557s
+
+Decryption Success
+
+Decryption by Bob : 0.034647s
+
