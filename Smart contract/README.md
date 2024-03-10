@@ -35,7 +35,7 @@ Ethereum Remix IDE：[網址](https://remix.ethereum.org/)
 
 5. 確認交易結果，如下圖  
 
-![](../image/solidity_result.png)
+![](../image/solidity_result1.png)
 
 圖中紅線處即為 verify 的結果  
 另外因運算所造成的消費 (execution cost) 為 136073 gas  
