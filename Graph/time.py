@@ -157,13 +157,16 @@ fig6.show()
 bsfpsi = 0.020186
 srspsi = 0.10612
 oursi =  0.159695
+bsfpwr = 0.01348
+srspwr = 0.00455
+ourwr = 0.0654
 fig7 = plt.figure(7, figsize=(8,6))
 axes = plt.gca()
 axes.set_ylim([0,0.17])
 condition = ['System initilization','Witness request','Witness response','Verification']
-bsfp = [bsfpsi,0.01348,0.01021,0.02216]
-our = [oursi,0.0654,0.012012,0.019516]
-srsp = [srspsi,0.00455,0.006926,0.025017]
+bsfp = [bsfpsi,bsfpwr,0.01021,0.02216]
+our = [oursi,ourwr,0.012012,0.019516]
+srsp = [srspsi,srspwr,0.006926,0.025017]
 x = np.arange(len(condition))
 width = 0.3
 plt.bar(x-width/2, our, width, color='blue', label='Our Scheme')
@@ -176,23 +179,25 @@ plt.legend( loc='upper right')
 
 fig7.show()
 
-upload=0.3
-download = 0.3
+trans = 0.04
 fig8 = plt.figure(8, figsize=(8,6))
 axes = plt.gca()
-axes.set_ylim([0,5])
+axes.set_ylim([0,4.5])
 a = 1
 b = 5
-c = 25
-d = 50
-e = 100
+c = 10
+d = 15
+e = 20
 condition = [a,b,c,d,e]
-SRSPT = 0.025642
-BSFP = 0.042451
-our = oursi+sign+encrypt+broadcast+verify+sign+download+verify+encrypt+decrypt
-bsfp = [(BSFP+upload+download)*a,(BSFP+upload+download)*b,(BSFP+upload+download)*c,(BSFP+upload+download)*d,(BSFP+upload+download)*e]
-srsp = [(SRSP+upload+download)*a,(SRSP+upload+download)*b,(SRSP+upload+download)*c,(SRSP+upload+download)*d,(SRSP+upload+download)*e]
-our = [our1+our2*a,our1+our2*b,our1+our2*c,our1+our2*d,our1+our2*e]
+SRSPe = 4.5/1000
+SRSPd = 4.5/1000
+BSFPe = 20/1000
+BSFPd = 20/1000
+ourenc= 60/1000
+ourdec= 20/1000
+our = [(oursi+ourenc+ourdec+ourwr+trans*4),(oursi+ourenc+ourdec+ourwr+trans*4),(oursi+ourenc+ourdec+ourwr+trans*4),(oursi+ourenc+ourdec+ourwr+trans*4),(oursi+ourenc+ourdec+ourwr+trans*4)]
+bsfp = [(BSFPe+BSFPd+3*trans)*a+bsfpsi,(BSFPe+BSFPd+trans*3)*b+bsfpsi,(BSFPe+BSFPd+trans*3)*c+bsfpsi,(BSFPe+BSFPd+trans*3)*d+bsfpsi,(BSFPe+BSFPd+trans*3)*e+bsfpsi]
+srsp = [srspsi+(SRSPe+SRSPd+trans*2)*a,srspsi+(SRSPe+SRSPd+trans)*b,srspsi+(SRSPe+SRSPd+trans)*c,srspsi+(SRSPe+SRSPd+trans)*d,srspsi+(SRSPe+SRSPd+trans)*e]
 x = np.arange(len(condition))
 width = 0.4
 plt.plot(x, our, 'ro-', linewidth=2, markersize=6, color='blue', label='Our Scheme')
@@ -208,10 +213,11 @@ fig8.show()
 
 fig9 = plt.figure(9, figsize=(8,6))
 axes = plt.gca()
-axes.set_ylim([0.023,0.07])
-bsfp = [BSFP,BSFP,BSFP,BSFP,BSFP]
-srsp = [SRSPT,SRSPT,SRSPT,SRSPT,SRSPT]
-our = [(our1+our2*a)/a,(our1+our2*b)/b,(our1+our2*c)/c,(our1+our2*d)/d,(our1+our2*e)/e]
+axes.set_ylim([0,0.55])
+for i in range(5):
+    our[i] = our[i]/condition[i]
+    bsfp[i] = bsfp[i]/condition[i]
+    srsp[i] = srsp[i]/condition[i]
 x = np.arange(len(condition))
 width = 0.4
 plt.plot(x, our, 'ro-', linewidth=2, markersize=6, color='blue', label='Our Scheme')
