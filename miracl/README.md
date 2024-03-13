@@ -35,3 +35,4 @@ g++ time_tbcpabe.cpp bn_pair.cpp zzn12a.cpp ecn2.cpp zzn4.cpp zzn2.cpp big.cpp z
 ## 5. 參考資料
 
 [https://blog.csdn.net/qq_44925830/article/details/123657274)
+[https://cloud.tencent.com/developer/article/1592257)
